@@ -1,16 +1,16 @@
 <template>
     <div class="space-y-2">
-        <TodoItem />
-        <TodoItem />
-        <TodoItem />
-        <TodoItem />
-        <TodoItem />
+        <TodoItem v-for="todo in todos" :key="todo.id" :todo="todo" />
     </div>
 </template>
 
-<script>
-import TodoItem from '@/components/TodoItem.vue';
-export default {
-    components: { TodoItem }
-}
+<script setup>
+import TodoItem from './TodoItem.vue'
+
+defineProps({
+    todos: {
+        type: Array,
+        required: true
+    }
+})
 </script>

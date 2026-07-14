@@ -3,7 +3,7 @@
     {
       "id": 1,
       "title": "Estudar Vue",
-      "completed": true
+      "completed": false
     },
     {
       "id": 2,
