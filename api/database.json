@@ -2,17 +2,17 @@
   "todos": [
     {
       "id": 1,
-      "title": "Estudar javascript",
+      "title": "Estudar Vue",
       "completed": true
     },
     {
       "id": 2,
-      "title": "Estudar Vue",
+      "title": "Estudar .NET",
       "completed": false
     },
     {
       "id": 3,
-      "title": "Estudar composition API",
+      "title": "Estudar Python",
       "completed": false
     }
   ]
