@@ -19,16 +19,6 @@
       "id": 4,
       "title": "Voltar a estudar NET",
       "completed": true
-    },
-    {
-      "id": 5,
-      "title": "Voltar a estudar BI",
-      "completed": true
-    },
-    {
-      "id": 6,
-      "title": "Desenvolver Sistemas Pessoais",
-      "completed": true
     }
   ]
 }

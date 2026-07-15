@@ -8,7 +8,7 @@
 
         <TodoFormAdd @add="addTodo" />
 
-        <TodoItems v-if="todos.length" :todos="todos" @update="updateTodo" />
+        <TodoItems v-if="todos.length" :todos="todos" @update="updateTodo" @delete="deleteTodo" />
 
         <TodoEmpty v-else />
 
@@ -52,6 +52,17 @@ const updateTodo = async (todo) => {
 
   if (index !== -1) {
     todos.value[index] = todo
+  }
+}
+
+const deleteTodo = async (id) => {
+  try {
+    await api.delete(`/todos/${id}`)
+
+    todos.value = todos.value.filter(todo => todo.id !== id)
+
+  } catch (error) {
+    console.error(error)
   }
 }
 

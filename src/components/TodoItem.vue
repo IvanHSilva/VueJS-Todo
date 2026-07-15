@@ -2,7 +2,7 @@
   <div class="bg-gray-300 rounded-sm">
     <div class="flex items-center px-4 py-3 border-b border-gray-400">
 
-      <!-- Botão concluir -->
+      <!-- Botão completar -->
       <div class="flex items-center justify-center mr-2">
         <button @click="toggleComplete" :class="todo.completed ?
           'text-green-600' : 'text-gray-400'">
@@ -10,7 +10,7 @@
         </button>
       </div>
 
-      <!-- Texto editável -->
+      <!-- Texto da tarefa -->
       <div class="w-full">
         <input v-model="title" @keyup.enter="save" @blur="save" type="text" :class="[
           'bg-gray-300 focus:outline-none block w-full',
@@ -20,9 +20,9 @@
         ]">
       </div>
 
-      <!-- Excluir -->
+      <!-- Botão excluir -->
       <div class="ml-auto">
-        <button class="text-gray-500">
+        <button @click="removeTodo" class="text-gray-500">
           🗑
         </button>
       </div>
@@ -41,7 +41,7 @@ const props = defineProps({
   }
 })
 
-const emit = defineEmits(['update'])
+const emit = defineEmits(['update', 'delete'])
 
 const title = ref(props.todo.title)
 watch(
@@ -54,19 +54,21 @@ watch(
 const save = () => {
   const newTitle = title.value.trim()
 
-  // Campo vazio: restaura o valor anterior
   if (!newTitle) {
     title.value = props.todo.title
     return
   }
 
-  // Não faz nada se não houve alteração
   if (newTitle === props.todo.title) return
 
   emit('update', {
     ...props.todo,
     title: newTitle
   })
+}
+
+const removeTodo = () => {
+  emit('delete', props.todo.id)
 }
 
 const toggleComplete = () => {

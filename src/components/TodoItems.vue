@@ -1,6 +1,7 @@
 <template>
   <div class="space-y-2">
-    <TodoItem v-for="todo in todos" :key="todo.id" :todo="todo" @update="$emit('update', $event)" />
+    <TodoItem v-for="todo in todos" :key="todo.id" :todo="todo" @update="$emit('update', $event)"
+      @delete="$emit('delete', $event)" />
   </div>
 </template>
 
@@ -14,5 +15,5 @@ defineProps({
   }
 })
 
-defineEmits(['update'])
+defineEmits(['update', 'delete'])
 </script>
