@@ -8,7 +8,7 @@
 
         <TodoFormAdd @add="addTodo" />
 
-        <TodoItems v-if="todos.length" :todos="todos" />
+        <TodoItems v-if="todos.length" :todos="todos" @update="updateTodo" />
 
         <TodoEmpty v-else />
 
@@ -43,6 +43,16 @@ const addTodo = async (title) => {
   })
 
   todos.value.push(response.data)
+}
+
+const updateTodo = async (todo) => {
+  await api.put(`/todos/${todo.id}`, todo)
+
+  const index = todos.value.findIndex(item => item.id === todo.id)
+
+  if (index !== -1) {
+    todos.value[index] = todo
+  }
 }
 
 onMounted(async () => {
