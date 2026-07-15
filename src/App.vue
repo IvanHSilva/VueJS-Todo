@@ -6,7 +6,7 @@
 
         <TodoSpinner v-if="loading" />
 
-        <TodoFormAdd />
+        <TodoFormAdd @add="addTodo" />
 
         <TodoItems v-if="todos.length" :todos="todos" />
 
@@ -31,12 +31,23 @@ import TodoSpinner from './components/TodoSpinner.vue';
 const todos = ref([])
 const loading = ref(true)
 
+const addTodo = async (title) => {
+  const newId = todos.value.length
+    ? Math.max(...todos.value.map(todo => Number(todo.id))) + 1
+    : 1
+
+  const response = await api.post('/todos', {
+    id: newId,
+    title: title,
+    completed: false
+  })
+
+  todos.value.push(response.data)
+}
+
 onMounted(async () => {
   try {
     const response = await api.get('/todos')
-
-    console.log(response.data) // teste
-
     todos.value = response.data
   } catch (error) {
     console.error(error)

@@ -5,13 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "server": "json-server --watch api/database.json --port 3000",
     "build": "vite build",
     "preview": "vite preview",
     "lint": "run-s \"lint:*\"",
     "lint:oxlint": "oxlint . --fix",
     "lint:eslint": "eslint . --fix --cache",
-    "format": "oxfmt src/",
-    "server": "json-server api/database.json --port 3000"
+    "format": "oxfmt src/"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.2",
@@ -29,6 +29,7 @@
     "eslint-plugin-oxlint": "~1.69.0",
     "eslint-plugin-vue": "~10.9.2",
     "globals": "^17.6.0",
+    "json-server": "^0.17.4",
     "npm-run-all2": "^9.0.2",
     "oxfmt": "^0.54.0",
     "oxlint": "~1.69.0",
