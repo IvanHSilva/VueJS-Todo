@@ -4,16 +4,20 @@
 
       <!-- Botão concluir -->
       <div class="flex items-center justify-center mr-2">
-        <button @click="toggleComplete" :class="todo.completed ? 'text-green-600' : 'text-gray-400'">
+        <button @click="toggleComplete" :class="todo.completed ?
+          'text-green-600' : 'text-gray-400'">
           ✓
         </button>
       </div>
 
       <!-- Texto editável -->
       <div class="w-full">
-        <input v-model="title" @keyup.enter="save" @blur="save" type="text"
-          class="bg-gray-300 text-gray-700 font-light focus:outline-none block w-full"
-          :class="todo.completed ? 'line-through' : ''">
+        <input v-model="title" @keyup.enter="save" @blur="save" type="text" :class="[
+          'bg-gray-300 focus:outline-none block w-full',
+          todo.completed
+            ? 'text-black font-bold'
+            : 'text-gray-700 font-light'
+        ]">
       </div>
 
       <!-- Excluir -->
@@ -28,7 +32,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 
 const props = defineProps({
   todo: {
@@ -40,17 +44,23 @@ const props = defineProps({
 const emit = defineEmits(['update'])
 
 const title = ref(props.todo.title)
+watch(
+  () => props.todo.title,
+  (newTitle) => {
+    title.value = newTitle
+  }
+)
 
 const save = () => {
   const newTitle = title.value.trim()
 
-  // Campo vazio: volta para o valor anterior
+  // Campo vazio: restaura o valor anterior
   if (!newTitle) {
     title.value = props.todo.title
     return
   }
 
-  // Não salva se não houve alteração
+  // Não faz nada se não houve alteração
   if (newTitle === props.todo.title) return
 
   emit('update', {

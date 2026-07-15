@@ -3,27 +3,32 @@
     {
       "id": 1,
       "title": "Estudar Vue",
-      "completed": false
+      "completed": true
     },
     {
       "id": 2,
       "title": "Estudar .NET",
-      "completed": false
+      "completed": true
     },
     {
       "id": 3,
       "title": "Estudar Python",
-      "completed": false
+      "completed": true
     },
     {
       "id": 4,
       "title": "Voltar a estudar NET",
-      "completed": false
+      "completed": true
     },
     {
       "id": 5,
       "title": "Voltar a estudar BI",
-      "completed": false
+      "completed": true
+    },
+    {
+      "id": 6,
+      "title": "Desenvolver Sistemas Pessoais",
+      "completed": true
     }
   ]
 }
