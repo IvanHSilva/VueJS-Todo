@@ -2,23 +2,18 @@
   "todos": [
     {
       "id": 1,
-      "title": "Estudar Vue",
-      "completed": true
+      "title": "Estudar HTML5",
+      "completed": false
     },
     {
       "id": 2,
-      "title": "Estudar .NET",
-      "completed": true
+      "title": "Estudar CSS3",
+      "completed": false
     },
     {
       "id": 3,
-      "title": "Estudar Python",
-      "completed": true
-    },
-    {
-      "id": 4,
-      "title": "Voltar a estudar NET",
-      "completed": true
+      "title": "Estudar VueJS",
+      "completed": false
     }
   ]
 }
