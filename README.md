@@ -51,6 +51,20 @@ Todo-list/
 └── vite.config.js
 ```
 
+## 🌐 Demonstração online
+
+O projeto está disponível nos seguintes endereços:
+
+### Aplicação
+
+🔗 https://vue-js-todo-omega.vercel.app/
+
+### API
+
+🔗 https://api-todo-2xs2.onrender.com/todos
+
+O frontend foi desenvolvido com Vue.js e consome uma API REST criada com JSON Server, hospedada separadamente para permitir o funcionamento em ambiente de produção.
+
 ## ⚙️ Instalação
 
 Clone o repositório:
