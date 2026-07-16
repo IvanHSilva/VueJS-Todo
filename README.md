@@ -134,11 +134,7 @@ DELETE /todos/:id
 
 ## 🖼️ Preview
 
-Adicione aqui uma imagem ou GIF mostrando a aplicação funcionando:
-
-```
-/screenshots/todo-list.png
-```
+![Todo List Preview](./screenshots/todo-list.gif)
 
 ## 📝 Aprendizados
 
